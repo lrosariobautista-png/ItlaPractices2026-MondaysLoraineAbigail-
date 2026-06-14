@@ -1,0 +1,125 @@
+﻿decimal typednumber1 = 0;
+decimal typednumber2 = 0;
+decimal result = 0;
+decimal Grade = 0;
+
+int Option = 0;
+
+Console.WriteLine("Hello!! Welcome to this Calculator and Grade Evaluation System");
+
+while (Option != 6)
+{
+    Console.WriteLine("Choose an option");
+    Console.WriteLine("1. Sum");
+    Console.WriteLine("2. Subtract");
+    Console.WriteLine("3. Multiply");
+    Console.WriteLine("4. Divide");
+    Console.WriteLine("5. Check Grade");
+    Console.WriteLine("6. Exit");
+
+    try
+    {
+        Console.WriteLine("Choose an option:");
+        Option = Convert.ToInt32(Console.ReadLine());
+
+        switch (Option)
+        {
+            case 1:
+
+                Console.WriteLine("Type the first number:");
+                typednumber1 = Convert.ToDecimal(Console.ReadLine());
+
+                Console.WriteLine("Type the second number:");
+                typednumber2 = Convert.ToDecimal(Console.ReadLine());
+
+                result = typednumber1 + typednumber2;
+
+                Console.WriteLine("The result is:" + result);
+                break;
+
+            case 2:
+
+                Console.WriteLine("Type the first number:");
+                typednumber1 = Convert.ToDecimal(Console.ReadLine());
+
+                Console.WriteLine("Type the second number:");
+                typednumber2 = Convert.ToDecimal(Console.ReadLine());
+
+                result = typednumber1 - typednumber2;
+
+                Console.WriteLine("The result is: +" + result);
+                break;
+
+            case 3:
+
+                Console.WriteLine("Type the first number:");
+                typednumber1 = Convert.ToDecimal(Console.ReadLine());
+
+                Console.WriteLine("Type the second number:");
+                typednumber2 = Convert.ToDecimal(Console.ReadLine());
+
+                result = typednumber1 * typednumber2;
+
+                Console.WriteLine("The result is:" + result);
+                break;
+
+            case 4:
+
+                Console.WriteLine("Type the first number:");
+                typednumber1 = Convert.ToDecimal(Console.ReadLine());
+
+                Console.WriteLine("Type the second number:");
+                typednumber2 = Convert.ToDecimal(Console.ReadLine());
+
+                if (typednumber2 == 0)
+                {
+                    Console.WriteLine("You can't divide by zero.");
+                }
+                else
+                {
+                    result = typednumber1 / typednumber2;
+                    Console.WriteLine("The result is:" + result);
+                }
+
+                break;
+
+            case 5:
+
+                Console.WriteLine("Type the student's grade:");
+                Grade = Convert.ToDecimal(Console.ReadLine());
+
+                if (Grade >= 70)
+                {
+                    Console.WriteLine("The student passed :D");
+                }
+                else
+                {
+                    Console.WriteLine("The student failed :(");
+                }
+
+                break;
+
+            case 6:
+
+                Console.WriteLine("Closing program...Bye bye!");
+                break;
+
+            default:
+
+                Console.WriteLine("Invalid option.");
+                break;
+        }
+    }
+    catch (FormatException)
+    {
+        Console.WriteLine("Please enter valid numeric values.");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Error:" + ex.Message);
+    }
+}
+
+Console.WriteLine("Program finished.");
+
+Console.ReadKey();
