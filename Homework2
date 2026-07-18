@@ -1,0 +1,263 @@
+using System;
+
+List<int> ids = new List<int>();
+
+Dictionary<int, string> names = new Dictionary<int, string>();
+Dictionary<int, string> categories = new Dictionary<int, string>();
+Dictionary<int, string> ingredients = new Dictionary<int, string>();
+Dictionary<int, string> types = new Dictionary<int, string>();
+
+bool running = true;
+
+Console.WriteLine("COOKING RECIPE LOG!!");
+
+while (running)
+{
+    Console.WriteLine("\nChoose an option:");
+    Console.WriteLine("1. List Recipes");
+    Console.WriteLine("2. Look recipes");
+    Console.WriteLine("3. Add recipes");
+    Console.WriteLine("4. Modify recipes");
+    Console.WriteLine("5. Delete recipes");
+    Console.WriteLine("6. Get out");
+
+    try
+    {
+        int opcion = Convert.ToInt32(Console.ReadLine());
+
+        switch (opcion)
+        {
+            case 1:
+                Listrecipes(ids, names, categories, ingredients, types);
+                break;
+
+            case 2:
+                LookRecipes(ids, names, categories, ingredients, types);
+                break;
+
+            case 3:
+                Console.Write("Recipe Name: ");
+                string name = Console.ReadLine();
+
+                Console.Write("Categorie: ");
+                string categorie = Console.ReadLine();
+
+                Console.Write("Ingredients: ");
+                string ingredient = Console.ReadLine();
+
+                Console.Write("Type of food: ");
+                string type = Console.ReadLine();
+
+                int id = CreatenewId(ids);
+                ids.Add(id);
+
+                AddRecipe(names, categories, ingredients, types,
+                    id, name, categorie, ingredient, type);
+
+                Console.WriteLine("Recipe added successfully.");
+                break;
+
+            case 4:
+
+                Console.Write("Enter the recipe ID.:");
+                int idModify = Convert.ToInt32(Console.ReadLine());
+
+                if (!names.ContainsKey(idModify))
+                {
+                    Console.WriteLine("This recipe doesn´t exist.");
+                    break;
+                }
+
+                Console.Write("New name: ");
+                name = Console.ReadLine();
+
+                Console.Write("New categorie: ");
+                categorie = Console.ReadLine();
+
+                Console.Write("New ingredients: ");
+                ingredient = Console.ReadLine();
+
+                Console.Write("New food type: ");
+                type = Console.ReadLine();
+
+                names[idModify] = name;
+                categories[idModify] = categorie;
+                ingredients[idModify] = ingredient;
+                types[idModify] = type;
+
+                Console.WriteLine("Receta modificada correctamente.");
+                break;
+
+            case 5:
+
+                Console.Write("Enter the recipe ID.: ");
+                int idDelete = Convert.ToInt32(Console.ReadLine());
+
+                Deleterecipe(ids, names, categories, ingredients, types, idDelete);
+
+                break;
+
+            case 6:
+
+                running = false;
+                Console.WriteLine("Thanks for use the system! :)");
+                break;
+
+            default:
+                Console.WriteLine("Invalid option");
+                break;
+        }
+    }
+    catch
+    {
+        Console.WriteLine("Error: You need to put valid data.");
+    }
+}
+
+static void AddRecipe(
+Dictionary<int, string> names,
+Dictionary<int, string> categories,
+Dictionary<int, string> ingredients,
+Dictionary<int, string> types,
+int id,
+string name,
+string categorie,
+string ingredient,
+string type)
+{
+    names.Add(id, name);
+    categories.Add(id, categorie);
+    ingredients.Add(id, ingredient);
+    types.Add(id, type);
+}
+
+static void Deleterecipe(
+List<int> ids,
+Dictionary<int, string> names,
+Dictionary<int, string> categories,
+Dictionary<int, string> ingredients,
+Dictionary<int, string> types,
+int id)
+{
+    if (names.ContainsKey(id))
+    {
+        names.Remove(id);
+        categories.Remove(id);
+        ingredients.Remove(id);
+        types.Remove(id);
+        ids.Remove(id);
+
+        Console.WriteLine("Recipe successfully deleted.");
+    }
+    else
+    {
+        Console.WriteLine("Doesn´t exist an recipe with this name :/.");
+    }
+}
+
+static void Listrecipes(
+List<int> ids,
+Dictionary<int, string> names,
+Dictionary<int, string> categories,
+Dictionary<int, string> ingredients,
+Dictionary<int, string> types)
+{
+    if (ids.Count == 0)
+    {
+        Console.WriteLine("There are no registered recipes.");
+        return;
+    }
+
+    Console.WriteLine("\n==============================================================================================");
+    Console.WriteLine("ID\tName\t\tCategorie\tIngredients\t\t\ttype");
+    Console.WriteLine("==============================================================================================");
+
+    foreach (int id in ids)
+    {
+        Console.WriteLine($"{id}\t{names[id]}\t\t{categories[id]}\t\t{ingredients[id]}\t\t{types[id]}");
+    }
+}
+
+static void LookRecipes(
+List<int> ids,
+Dictionary<int, string> names,
+Dictionary<int, string> categories,
+Dictionary<int, string> ingredients,
+Dictionary<int, string> types)
+{
+    Console.WriteLine("Look for:");
+    Console.WriteLine("1. ID");
+    Console.WriteLine("2. Name");
+    Console.WriteLine("3. Type of food");
+
+    int option = Convert.ToInt32(Console.ReadLine());
+
+    switch (option)
+    {
+        case 1:
+
+            Console.Write("ID: ");
+            int id = Convert.ToInt32(Console.ReadLine());
+
+            if (names.ContainsKey(id))
+            {
+
+                Console.WriteLine($"Name: {names[id]}");
+                Console.WriteLine($"Categorie: {categories[id]}");
+                Console.WriteLine($"Ingredients: {ingredients[id]}");
+                Console.WriteLine($"Type: {types[id]}");
+            }
+            else
+            {
+                Console.WriteLine("Doesn´t exist.");
+            }
+
+            break;
+
+        case 2:
+
+            Console.Write("Name: ");
+            string name = Console.ReadLine().ToLower();
+
+            foreach (int i in ids)
+            {
+                if (names[i].ToLower().Contains(name))
+                {
+                    Console.WriteLine($"{i} - {names[i]} - {categories[i]} - {types[i]}");
+                }
+            }
+
+            break;
+
+        case 3:
+
+            Console.Write("Typo of food: ");
+            string tipo = Console.ReadLine().ToLower();
+
+            foreach (int i in ids)
+            {
+                if (types[i].ToLower().Contains(tipo))
+                {
+                    Console.WriteLine($"{i} - {names[i]} - {categories[i]}");
+                }
+            }
+
+            break;
+
+        default:
+            Console.WriteLine("Invalid Option.");
+            break;
+    }
+}
+
+static int CreatenewId(List<int> ids)
+{
+    if (ids.Any())
+    {
+        return ids.Max() + 1;
+    }
+
+    return 1;
+}
+
+Console.ReadKey();
