@@ -1,0 +1,15 @@
+C:\ItlaPracticasProgramacion1\ItlaPractices2026-MondaysLoraineAbigail-\Homework2\Homework2\bin\Debug\net10.0\Homework2.exe
+C:\ItlaPracticasProgramacion1\ItlaPractices2026-MondaysLoraineAbigail-\Homework2\Homework2\bin\Debug\net10.0\Homework2.deps.json
+C:\ItlaPracticasProgramacion1\ItlaPractices2026-MondaysLoraineAbigail-\Homework2\Homework2\bin\Debug\net10.0\Homework2.runtimeconfig.json
+C:\ItlaPracticasProgramacion1\ItlaPractices2026-MondaysLoraineAbigail-\Homework2\Homework2\bin\Debug\net10.0\Homework2.dll
+C:\ItlaPracticasProgramacion1\ItlaPractices2026-MondaysLoraineAbigail-\Homework2\Homework2\bin\Debug\net10.0\Homework2.pdb
+C:\ItlaPracticasProgramacion1\ItlaPractices2026-MondaysLoraineAbigail-\Homework2\Homework2\obj\Debug\net10.0\Homework2.GeneratedMSBuildEditorConfig.editorconfig
+C:\ItlaPracticasProgramacion1\ItlaPractices2026-MondaysLoraineAbigail-\Homework2\Homework2\obj\Debug\net10.0\Homework2.AssemblyInfoInputs.cache
+C:\ItlaPracticasProgramacion1\ItlaPractices2026-MondaysLoraineAbigail-\Homework2\Homework2\obj\Debug\net10.0\Homework2.AssemblyInfo.cs
+C:\ItlaPracticasProgramacion1\ItlaPractices2026-MondaysLoraineAbigail-\Homework2\Homework2\obj\Debug\net10.0\Homework2.csproj.CoreCompileInputs.cache
+C:\ItlaPracticasProgramacion1\ItlaPractices2026-MondaysLoraineAbigail-\Homework2\Homework2\obj\Debug\net10.0\Homework2.sourcelink.json
+C:\ItlaPracticasProgramacion1\ItlaPractices2026-MondaysLoraineAbigail-\Homework2\Homework2\obj\Debug\net10.0\Homework2.dll
+C:\ItlaPracticasProgramacion1\ItlaPractices2026-MondaysLoraineAbigail-\Homework2\Homework2\obj\Debug\net10.0\refint\Homework2.dll
+C:\ItlaPracticasProgramacion1\ItlaPractices2026-MondaysLoraineAbigail-\Homework2\Homework2\obj\Debug\net10.0\Homework2.pdb
+C:\ItlaPracticasProgramacion1\ItlaPractices2026-MondaysLoraineAbigail-\Homework2\Homework2\obj\Debug\net10.0\Homework2.genruntimeconfig.cache
+C:\ItlaPracticasProgramacion1\ItlaPractices2026-MondaysLoraineAbigail-\Homework2\Homework2\obj\Debug\net10.0\ref\Homework2.dll
